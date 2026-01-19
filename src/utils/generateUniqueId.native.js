@@ -5,12 +5,18 @@ import * as Crypto from 'expo-crypto'
  * NOT intended for authentication, authorization, or secrets.
  * Output format is stable and deterministic.
  *
+ * @param {Object} options - Configuration options.
+ * @param {boolean} [options.skipUUID=false] - If true, skips UUID generation and always returns a hex string.
  * @returns {string} A UUID v4 string when supported, otherwise a 32-char hex string.
  * @throws {Error} When a secure random generator is unavailable.
  */
-export const generateUniqueId = () => {
-  if (Crypto.randomUUID) return Crypto.randomUUID()
-  if (globalThis.crypto?.randomUUID) return globalThis.crypto.randomUUID()
+export const generateUniqueId = (options = {}) => {
+  const { skipUUID = false } = options
+
+  if (!skipUUID) {
+    if (Crypto.randomUUID) return Crypto.randomUUID()
+    if (globalThis.crypto?.randomUUID) return globalThis.crypto.randomUUID()
+  }
 
   const getRandomValues =
     globalThis.crypto?.getRandomValues || Crypto.getRandomValues

@@ -60,7 +60,10 @@ describe('generateUniqueId', () => {
 
   describe('skipUUID option', () => {
     it('should skip UUID generation and return hex string when skipUUID is true', () => {
-      const getRandomValuesSpy = jest.spyOn(globalThis.crypto, 'getRandomValues')
+      const getRandomValuesSpy = jest.spyOn(
+        globalThis.crypto,
+        'getRandomValues'
+      )
       const id = generateUniqueId({ skipUUID: true })
 
       expect(id).toMatch(HEX_32_REGEX)

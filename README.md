@@ -6,12 +6,17 @@ Generate unique IDs for Pear Apps
 
 - Generates unique IDs.
 
+## Security Notice
+
+1. To ensure the security and integrity of your projects, please note that official PearPass packages are distributed exclusively through our GitHub organization.
+2. Any packages with similar names found on the npm registry or other third-party package managers are not affiliated with PearPass and should be strictly avoided. We recommend installing directly from this repository to ensure you are using the verified, open-source version.
+
 ## Installation
 
 Install the package using npm:
 
 ```bash
-npm install 
+npm install git+https://github.com/tetherto/pear-apps-utils-generate-unique-id.git
 ```
 
 ## Testing
@@ -25,23 +30,17 @@ npm test
 ## Usage Examples
 
 ```javascript
-import { generateUniqueId } from 'pear-apps-utils-generate-unique-id';
+import { generateUniqueId } from '@tetherto/pear-apps-utils-generate-unique-id';
 
 const uniqueId = generateUniqueId();
 console.log(uniqueId);
 ```
 
-## Depended Submodules
-
-The following sibling submodules must be present in the workspace (they are not declared as npm dependencies):
-
-- [`tether-dev-docs`](../tether-dev-docs)
-
 ## Related Projects
 
-- [pearpass-app-mobile](https://github.com/tetherto/pearpass-app-mobile) - A mobile app for PearPass, a password manager
-- [pearpass-app-browser-extension](https://github.com/tetherto/pearpass-app-browser-extension) - A browser extension for PearPass, a password manager
-- [pearpass-app-desktop](https://github.com/tetherto/pearpass-app-desktop) - A desktop app for PearPass, a password manager
+- [@tetherto/pearpass-app-mobile](https://github.com/tetherto/pearpass-app-mobile) - A mobile app for PearPass, a password manager
+- [@tetherto/pearpass-app-browser-extension](https://github.com/tetherto/pearpass-app-browser-extension) - A browser extension for PearPass, a password manager
+- [@tetherto/pearpass-app-desktop](https://github.com/tetherto/pearpass-app-desktop) - A desktop app for PearPass, a password manager
 
 ## License
 
